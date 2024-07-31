@@ -12,18 +12,21 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/emergency-lights")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EmergencyLightsController {
 
     @Autowired
     private IEmergencyLightsService emergencyLightsService;
 
     @GetMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<EmergencyLightsDTO>> getAllEmergencyLights() {
         List<EmergencyLightsDTO> emergencyLightsList = emergencyLightsService.findAll();
         return new ResponseEntity<>(emergencyLightsList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EmergencyLightsDTO> getEmergencyLightsById(@PathVariable Long id) {
         Optional<EmergencyLightsDTO> emergencyLightsDTO = emergencyLightsService.findById(id);
         return emergencyLightsDTO
@@ -32,12 +35,14 @@ public class EmergencyLightsController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EmergencyLightsDTO> createEmergencyLights(@RequestBody EmergencyLightsDTO emergencyLightsDTO) {
         EmergencyLightsDTO createdEmergencyLights = emergencyLightsService.createEmergencyLinghts(emergencyLightsDTO);
         return new ResponseEntity<>(createdEmergencyLights, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EmergencyLightsDTO> updateEmergencyLights(@PathVariable Long id, @RequestBody EmergencyLightsDTO emergencyLightsDTO) {
         EmergencyLightsDTO updatedEmergencyLights = emergencyLightsService.update(id, emergencyLightsDTO);
         if (updatedEmergencyLights != null) {
@@ -48,6 +53,7 @@ public class EmergencyLightsController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deleteEmergencyLightsById(@PathVariable Long id) {
         emergencyLightsService.deletedById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

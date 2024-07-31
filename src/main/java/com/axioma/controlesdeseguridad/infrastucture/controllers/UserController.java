@@ -12,18 +12,21 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
     @Autowired
     private IUserService userService;
 
     @GetMapping(produces = "application/json")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<UserDTO> usersList = userService.findAll();
         return new ResponseEntity<>(usersList, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         Optional<UserDTO> userDTO = userService.findById(id);
         return userDTO
@@ -32,12 +35,14 @@ public class UserController {
     }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
         UserDTO createdUser = userService.createUser(userDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
         UserDTO updatedUser = userService.update(id, userDTO);
         if (updatedUser != null) {
@@ -48,6 +53,7 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         userService.deletedById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

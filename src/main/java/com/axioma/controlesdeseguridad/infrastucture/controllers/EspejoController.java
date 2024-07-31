@@ -12,18 +12,21 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/espejos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EspejoController {
 
     @Autowired
     private IEspejoService espejoService;
 
     @GetMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<EspejoDTO>> getAllEspejos() {
         List<EspejoDTO> espejosList = espejoService.findAll();
         return new ResponseEntity<>(espejosList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EspejoDTO> getEspejoById(@PathVariable Long id) {
         Optional<EspejoDTO> espejoDTO = espejoService.findById(id);
         return espejoDTO
@@ -32,12 +35,14 @@ public class EspejoController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EspejoDTO> createEspejo(@RequestBody EspejoDTO espejoDTO) {
         EspejoDTO createdEspejo = espejoService.createEspejo(espejoDTO);
         return new ResponseEntity<>(createdEspejo, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<EspejoDTO> updateEspejo(@PathVariable Long id, @RequestBody EspejoDTO espejoDTO) {
         EspejoDTO updatedEspejo = espejoService.update(id, espejoDTO);
         if (updatedEspejo != null) {
@@ -48,6 +53,7 @@ public class EspejoController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deleteEspejoById(@PathVariable Long id) {
         espejoService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

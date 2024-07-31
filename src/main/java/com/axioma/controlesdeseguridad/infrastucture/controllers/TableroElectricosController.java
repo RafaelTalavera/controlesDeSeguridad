@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/api/tableros-electricos")
 public class TableroElectricosController {
 
@@ -18,12 +19,14 @@ public class TableroElectricosController {
     private ITableroElectricoService tableroElectricoService;
 
     @GetMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<TablerosElectricosDTO>> getAllTablerosElectricos() {
         List<TablerosElectricosDTO> tablerosList = tableroElectricoService.findAll();
         return new ResponseEntity<>(tablerosList, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<TablerosElectricosDTO> getTablerosElectricosById(@PathVariable Long id) {
         Optional<TablerosElectricosDTO> tablerosElectricosDTO = tableroElectricoService.findById(id);
         return tablerosElectricosDTO
@@ -32,12 +35,14 @@ public class TableroElectricosController {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<TablerosElectricosDTO> createTablerosElectricos(@RequestBody TablerosElectricosDTO tablerosElectricosDTO) {
         TablerosElectricosDTO createdTablerosElectricos = tableroElectricoService.createTablerosElectricos(tablerosElectricosDTO);
         return new ResponseEntity<>(createdTablerosElectricos, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<TablerosElectricosDTO> updateTablerosElectricos(@PathVariable Long id, @RequestBody TablerosElectricosDTO tablerosElectricosDTO) {
         TablerosElectricosDTO updatedTablerosElectricos = tableroElectricoService.update(id, tablerosElectricosDTO);
         if (updatedTablerosElectricos != null) {
@@ -48,6 +53,7 @@ public class TableroElectricosController {
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deleteTablerosElectricosById(@PathVariable Long id) {
         tableroElectricoService.deletedById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

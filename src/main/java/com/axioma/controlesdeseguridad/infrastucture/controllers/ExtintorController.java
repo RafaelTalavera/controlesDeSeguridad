@@ -21,6 +21,7 @@ public class ExtintorController {
 
 
     @GetMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<List<ExtintorDTO>> getAllExtintores() {
         List<ExtintorDTO> extintoresList = extintorService.findAll();
         return new ResponseEntity<>(extintoresList, HttpStatus.OK);
@@ -28,6 +29,7 @@ public class ExtintorController {
 
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<ExtintorDTO> getExtintorById(@PathVariable Long id) {
         Optional<ExtintorDTO> extintorDTO = extintorService.findById(id);
         return extintorDTO
@@ -37,6 +39,7 @@ public class ExtintorController {
 
 
     @PostMapping
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<ExtintorDTO> createExtintor(@RequestBody ExtintorDTO extintorDTO) {
         ExtintorDTO createdExtintor = extintorService.createExtintor(extintorDTO);
         return new ResponseEntity<>(createdExtintor, HttpStatus.CREATED);
@@ -44,6 +47,7 @@ public class ExtintorController {
 
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<ExtintorDTO> updateExtintor(@PathVariable Long id, @RequestBody ExtintorDTO extintorDTO) {
         ExtintorDTO updatedExtintor = extintorService.update(id, extintorDTO);
         if (updatedExtintor != null) {
@@ -55,6 +59,7 @@ public class ExtintorController {
 
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<Void> deleteExtintorById(@PathVariable Long id) {
         extintorService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
