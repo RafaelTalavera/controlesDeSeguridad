@@ -41,10 +41,16 @@ public class TableroElectricosServiceImplements implements ITableroElectricoServ
     @Transactional
     public TablerosElectricosDTO createTablerosElectricos(TablerosElectricosDTO tablerosElectricosDTO) {
         TablerosElectrico tablerosElectrico = tableroElectricosMapper.toEntity(tablerosElectricosDTO);
+
+        // Logging para verificar datos
+        System.out.println("DTO recibido: " + tablerosElectricosDTO);
+        System.out.println("Entidad mapeada: " + tablerosElectrico);
+
         tablerosElectrico = tableroElectricoRepository.save(tablerosElectrico);
 
         return tableroElectricosMapper.toDTO(tablerosElectrico);
     }
+
 
     @Override
     @Transactional

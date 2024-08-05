@@ -1,11 +1,10 @@
 package com.axioma.controlesdeseguridad.application.services;
 
-import com.axioma.controlesdeseguridad.application.dto.EspejoDTO;
+
 import com.axioma.controlesdeseguridad.application.dto.ExtintorDTO;
 import com.axioma.controlesdeseguridad.application.mappers.ExtintorMapper;
 import com.axioma.controlesdeseguridad.domain.models.Extintor;
 import com.axioma.controlesdeseguridad.domain.repositories.ExtintorRepository;
-import com.axioma.controlesdeseguridad.domain.services.IEspejoService;
 import com.axioma.controlesdeseguridad.domain.services.IExtintorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

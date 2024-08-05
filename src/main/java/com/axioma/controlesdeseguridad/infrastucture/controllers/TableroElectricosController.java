@@ -4,6 +4,7 @@ import com.axioma.controlesdeseguridad.application.dto.TablerosElectricosDTO;
 import com.axioma.controlesdeseguridad.domain.services.ITableroElectricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,7 @@ public class TableroElectricosController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TablerosElectricosDTO> createTablerosElectricos(@RequestBody TablerosElectricosDTO tablerosElectricosDTO) {
         TablerosElectricosDTO createdTablerosElectricos = tableroElectricoService.createTablerosElectricos(tablerosElectricosDTO);
         return new ResponseEntity<>(createdTablerosElectricos, HttpStatus.CREATED);
