@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class TablerosElectricosDTO {
     private Long id;
     private String codigo;
-    private LocalDate fechaEdición;
+    private LocalDate fechaEdicion;
     private String edicion;
     private LocalDate date;
     private String ubicacion;
@@ -30,14 +30,16 @@ public class TablerosElectricosDTO {
     private Boolean conexionado;
     private String conexionadoComenatrio;
     private User user;
+    private String mantenimiento;
+
 
     public TablerosElectricosDTO() {
     }
 
-    public TablerosElectricosDTO(Long id, String codigo, LocalDate fechaEdición, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, User user) {
+    public TablerosElectricosDTO(Long id, String codigo, LocalDate fechaEdicion, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, User user, String mantenimiento) {
         this.id = id;
         this.codigo = codigo;
-        this.fechaEdición = fechaEdición;
+        this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.date = date;
         this.ubicacion = ubicacion;
@@ -58,6 +60,7 @@ public class TablerosElectricosDTO {
         this.conexionado = conexionado;
         this.conexionadoComenatrio = conexionadoComenatrio;
         this.user = user;
+        this.mantenimiento = mantenimiento;
     }
 
     public Long getId() {
@@ -76,12 +79,12 @@ public class TablerosElectricosDTO {
         this.codigo = codigo;
     }
 
-    public LocalDate getFechaEdición() {
-        return fechaEdición;
+    public LocalDate getFechaEdicion() {
+        return fechaEdicion;
     }
 
-    public void setFechaEdición(LocalDate fechaEdición) {
-        this.fechaEdición = fechaEdición;
+    public void setFechaEdicion(LocalDate fechaEdicion) {
+        this.fechaEdicion = fechaEdicion;
     }
 
     public String getEdicion() {
@@ -242,5 +245,13 @@ public class TablerosElectricosDTO {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getMantenimiento() {
+        return mantenimiento;
+    }
+
+    public void setMantenimiento(String mantenimiento) {
+        this.mantenimiento = mantenimiento;
     }
 }

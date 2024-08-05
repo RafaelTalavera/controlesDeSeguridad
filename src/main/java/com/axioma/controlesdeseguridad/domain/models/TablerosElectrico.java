@@ -42,6 +42,8 @@ public class TablerosElectrico {
     private Boolean conexionado;
     private String conexionadoComenatrio;
 
+    private String mantenimiento;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -49,7 +51,7 @@ public class TablerosElectrico {
     public TablerosElectrico() {
     }
 
-    public TablerosElectrico(Long id, String codigo, LocalDate fechaEdición, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, User user) {
+    public TablerosElectrico(Long id, String codigo, LocalDate fechaEdición, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, String mantenimiento, User user) {
         this.id = id;
         this.codigo = codigo;
         this.fechaEdición = fechaEdición;
@@ -72,7 +74,16 @@ public class TablerosElectrico {
         this.cablesDimensionComentario = cablesDimensionComentario;
         this.conexionado = conexionado;
         this.conexionadoComenatrio = conexionadoComenatrio;
+        this.mantenimiento = mantenimiento;
         this.user = user;
+    }
+
+    public String getMantenimiento() {
+        return mantenimiento;
+    }
+
+    public void setMantenimiento(String mantenimiento) {
+        this.mantenimiento = mantenimiento;
     }
 
     public Long getId() {
