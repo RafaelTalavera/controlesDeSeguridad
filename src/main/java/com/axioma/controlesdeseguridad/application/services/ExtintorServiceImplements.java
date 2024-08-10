@@ -1,6 +1,7 @@
 package com.axioma.controlesdeseguridad.application.services;
 
 
+import com.axioma.controlesdeseguridad.application.UsuarioNoEncontradoException;
 import com.axioma.controlesdeseguridad.application.dto.ExtintorDTO;
 import com.axioma.controlesdeseguridad.application.mappers.ExtintorMapper;
 import com.axioma.controlesdeseguridad.domain.models.Extintor;
@@ -41,7 +42,9 @@ public class ExtintorServiceImplements implements IExtintorService {
     @Override
     @Transactional
     public ExtintorDTO createExtintor(ExtintorDTO extintorDTO) {
-
+        if (extintorDTO.getUser() == null) {
+            throw new UsuarioNoEncontradoException("El ID de usuario no puede ser nulo.");
+        }
         Extintor extintor = extintorMapper.toEntity(extintorDTO);
         extintor = extintorRepository.save(extintor);
 
