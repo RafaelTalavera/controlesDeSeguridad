@@ -14,6 +14,7 @@ public class Extintor {
     private String codigo;
     private LocalDate fechaEdición;
     private String edicion;
+    private String area;
     private String ubicacion;
     private String serie;
     private LocalDate dateRecarga;
@@ -35,11 +36,12 @@ public class Extintor {
     public Extintor() {
     }
 
-    public Extintor(Long id, String codigo, LocalDate fechaEdición, String edicion, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, User user) {
+    public Extintor(Long id, String codigo, LocalDate fechaEdición, String edicion, String area, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, User user) {
         this.id = id;
         this.codigo = codigo;
         this.fechaEdición = fechaEdición;
         this.edicion = edicion;
+        this.area = area;
         this.ubicacion = ubicacion;
         this.serie = serie;
         this.dateRecarga = dateRecarga;
@@ -54,6 +56,14 @@ public class Extintor {
         this.pinDeSeguirdad = pinDeSeguirdad;
         this.observacion = observacion;
         this.user = user;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public Long getId() {
