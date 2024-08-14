@@ -1,5 +1,6 @@
 package com.axioma.controlesdeseguridad.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -12,7 +13,7 @@ public class Extintor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codigo;
-    private LocalDate fechaEdición;
+    private LocalDate fechaEdicion;
     private String edicion;
     private String area;
     private String ubicacion;
@@ -31,15 +32,17 @@ public class Extintor {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
+
 
     public Extintor() {
     }
 
-    public Extintor(Long id, String codigo, LocalDate fechaEdición, String edicion, String area, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, User user) {
+    public Extintor(Long id, String codigo, LocalDate fechaEdicion, String edicion, String area, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, User user) {
         this.id = id;
         this.codigo = codigo;
-        this.fechaEdición = fechaEdición;
+        this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.area = area;
         this.ubicacion = ubicacion;
@@ -58,14 +61,6 @@ public class Extintor {
         this.user = user;
     }
 
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
     public Long getId() {
         return id;
     }
@@ -82,12 +77,12 @@ public class Extintor {
         this.codigo = codigo;
     }
 
-    public LocalDate getFechaEdición() {
-        return fechaEdición;
+    public LocalDate getFechaEdicion() {
+        return fechaEdicion;
     }
 
-    public void setFechaEdición(LocalDate fechaEdición) {
-        this.fechaEdición = fechaEdición;
+    public void setFechaEdicion(LocalDate fechaEdicion) {
+        this.fechaEdicion = fechaEdicion;
     }
 
     public String getEdicion() {
@@ -96,6 +91,14 @@ public class Extintor {
 
     public void setEdicion(String edicion) {
         this.edicion = edicion;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getUbicacion() {

@@ -42,7 +42,7 @@ public class ExtintorServiceImplements implements IExtintorService {
     @Override
     @Transactional
     public ExtintorDTO createExtintor(ExtintorDTO extintorDTO) {
-        if (extintorDTO.getUser() == null) {
+        if (extintorDTO.getUserId() == null) {
             throw new UsuarioNoEncontradoException("El ID de usuario no puede ser nulo.");
         }
         Extintor extintor = extintorMapper.toEntity(extintorDTO);

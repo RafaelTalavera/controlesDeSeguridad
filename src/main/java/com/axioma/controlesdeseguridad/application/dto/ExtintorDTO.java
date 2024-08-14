@@ -1,7 +1,5 @@
 package com.axioma.controlesdeseguridad.application.dto;
 
-import com.axioma.controlesdeseguridad.domain.models.User;
-
 import java.time.LocalDate;
 
 
@@ -9,7 +7,7 @@ public class ExtintorDTO {
 
     private Long id;
     private String codigo;
-    private LocalDate fechaEdición;
+    private LocalDate fechaEdicion;
     private String edicion;
     private String area;
     private String ubicacion;
@@ -25,15 +23,15 @@ public class ExtintorDTO {
     private String estadoManguera;
     private String pinDeSeguirdad;
     private String observacion;
-    private User user;
+    private Long userId;
 
     public ExtintorDTO() {
     }
 
-    public ExtintorDTO(Long id, String codigo, LocalDate fechaEdición, String edicion, String area, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, User user) {
+    public ExtintorDTO(Long id, String codigo, LocalDate fechaEdicion, String edicion, String area, String ubicacion, String serie, LocalDate dateRecarga, LocalDate dateVencimiento, LocalDate datePruebaHidrostatica, String empresaRecarga, String cambioDeExtintor, String tipoDeExtintor, String estadoDelCilindro, String estadoDelManometro, String estadoManguera, String pinDeSeguirdad, String observacion, Long userId) {
         this.id = id;
         this.codigo = codigo;
-        this.fechaEdición = fechaEdición;
+        this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.area = area;
         this.ubicacion = ubicacion;
@@ -49,15 +47,7 @@ public class ExtintorDTO {
         this.estadoManguera = estadoManguera;
         this.pinDeSeguirdad = pinDeSeguirdad;
         this.observacion = observacion;
-        this.user = user;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -76,12 +66,12 @@ public class ExtintorDTO {
         this.codigo = codigo;
     }
 
-    public LocalDate getFechaEdición() {
-        return fechaEdición;
+    public LocalDate getFechaEdicion() {
+        return fechaEdicion;
     }
 
-    public void setFechaEdición(LocalDate fechaEdición) {
-        this.fechaEdición = fechaEdición;
+    public void setFechaEdicion(LocalDate fechaEdicion) {
+        this.fechaEdicion = fechaEdicion;
     }
 
     public String getEdicion() {
@@ -90,6 +80,14 @@ public class ExtintorDTO {
 
     public void setEdicion(String edicion) {
         this.edicion = edicion;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getUbicacion() {
@@ -196,11 +194,11 @@ public class ExtintorDTO {
         this.observacion = observacion;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

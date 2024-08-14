@@ -15,7 +15,7 @@ public class Espejo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codigo;
-    private LocalDate fechaEdición;
+    private LocalDate fechaEdicion;
     private String edicion;
     private String ubicacion;
     private String ruc;
@@ -32,10 +32,10 @@ public class Espejo {
     public Espejo() {
     }
 
-    public Espejo(Long id, String codigo, LocalDate fechaEdición, String edicion, String ubicacion, String ruc, String razonSocial, String domicilio, String cantidad, String estado, List<String> observacion, User user) {
+    public Espejo(Long id, String codigo, LocalDate fechaEdicion, String edicion, String ubicacion, String ruc, String razonSocial, String domicilio, String cantidad, String estado, List<String> observacion, User user) {
         this.id = id;
         this.codigo = codigo;
-        this.fechaEdición = fechaEdición;
+        this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.ubicacion = ubicacion;
         this.ruc = ruc;
@@ -63,12 +63,12 @@ public class Espejo {
         this.codigo = codigo;
     }
 
-    public LocalDate getFechaEdición() {
-        return fechaEdición;
+    public LocalDate getFechaEdicion() {
+        return fechaEdicion;
     }
 
-    public void setFechaEdición(LocalDate fechaEdición) {
-        this.fechaEdición = fechaEdición;
+    public void setFechaEdicion(LocalDate fechaEdicion) {
+        this.fechaEdicion = fechaEdicion;
     }
 
     public String getEdicion() {
