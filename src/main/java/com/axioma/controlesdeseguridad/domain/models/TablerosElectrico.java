@@ -17,6 +17,7 @@ public class TablerosElectrico {
     private String edicion;
     private LocalDate date;
     private String ubicacion;
+    private String area;
 
     private Boolean estructura;
     private String estructuraComentarios;
@@ -51,13 +52,14 @@ public class TablerosElectrico {
     public TablerosElectrico() {
     }
 
-    public TablerosElectrico(Long id, String codigo, LocalDate fechaEdicion, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, String mantenimiento, User user) {
+    public TablerosElectrico(Long id, String codigo, LocalDate fechaEdicion, String edicion, LocalDate date, String ubicacion, String area, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, String mantenimiento, User user) {
         this.id = id;
         this.codigo = codigo;
         this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.date = date;
         this.ubicacion = ubicacion;
+        this.area = area;
         this.estructura = estructura;
         this.estructuraComentarios = estructuraComentarios;
         this.puertaChapaInterruptor = puertaChapaInterruptor;
@@ -76,6 +78,14 @@ public class TablerosElectrico {
         this.conexionadoComenatrio = conexionadoComenatrio;
         this.mantenimiento = mantenimiento;
         this.user = user;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getMantenimiento() {

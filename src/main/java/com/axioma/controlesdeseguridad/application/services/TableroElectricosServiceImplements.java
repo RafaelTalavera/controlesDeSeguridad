@@ -21,26 +21,26 @@ public class TableroElectricosServiceImplements implements ITableroElectricoServ
     private TableroElectricoRepository tableroElectricoRepository;
 
     @Autowired
-    private TableroElectricosMapper tableroElectricosMapper;
+    private TableroElectricosMapper tablerosElectricosMapper;
 
     @Override
     @Transactional
     public List<TablerosElectricosDTO> findAll() {
         return StreamSupport.stream(tableroElectricoRepository.findAll()
-                .spliterator(),false).map(tableroElectricosMapper::toDTO)
+                .spliterator(),false).map(tablerosElectricosMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public Optional<TablerosElectricosDTO> findById(Long id) {
-        return tableroElectricoRepository.findById(id).map(tableroElectricosMapper::toDTO);
+        return tableroElectricoRepository.findById(id).map(tablerosElectricosMapper::toDTO);
     }
 
     @Override
     @Transactional
     public TablerosElectricosDTO createTablerosElectricos(TablerosElectricosDTO tablerosElectricosDTO) {
-        TablerosElectrico tablerosElectrico = tableroElectricosMapper.toEntity(tablerosElectricosDTO);
+        TablerosElectrico tablerosElectrico = tablerosElectricosMapper.toEntity(tablerosElectricosDTO);
 
         // Logging para verificar datos
         System.out.println("DTO recibido: " + tablerosElectricosDTO);
@@ -48,7 +48,7 @@ public class TableroElectricosServiceImplements implements ITableroElectricoServ
 
         tablerosElectrico = tableroElectricoRepository.save(tablerosElectrico);
 
-        return tableroElectricosMapper.toDTO(tablerosElectrico);
+        return tablerosElectricosMapper.toDTO(tablerosElectrico);
     }
 
 

@@ -13,6 +13,7 @@ public class TablerosElectricosDTO {
     private String edicion;
     private LocalDate date;
     private String ubicacion;
+    private String area;
     private Boolean estructura;
     private String estructuraComentarios;
     private Boolean puertaChapaInterruptor;
@@ -36,13 +37,14 @@ public class TablerosElectricosDTO {
     public TablerosElectricosDTO() {
     }
 
-    public TablerosElectricosDTO(Long id, String codigo, LocalDate fechaEdicion, String edicion, LocalDate date, String ubicacion, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, User user, String mantenimiento) {
+    public TablerosElectricosDTO(Long id, String codigo, LocalDate fechaEdicion, String edicion, LocalDate date, String ubicacion, String area, Boolean estructura, String estructuraComentarios, Boolean puertaChapaInterruptor, String puertaChapaInterruptorComentario, Boolean tomaCorriente, String tomaCorrienteComentario, Boolean senalizacion, String senalizacionComentario, Boolean seccionado, String seccionadoComentario, Boolean interruptor, String interruptorComentario, Boolean cablesDimension, String cablesDimensionComentario, Boolean conexionado, String conexionadoComenatrio, User user, String mantenimiento) {
         this.id = id;
         this.codigo = codigo;
         this.fechaEdicion = fechaEdicion;
         this.edicion = edicion;
         this.date = date;
         this.ubicacion = ubicacion;
+        this.area = area;
         this.estructura = estructura;
         this.estructuraComentarios = estructuraComentarios;
         this.puertaChapaInterruptor = puertaChapaInterruptor;
@@ -61,6 +63,14 @@ public class TablerosElectricosDTO {
         this.conexionadoComenatrio = conexionadoComenatrio;
         this.user = user;
         this.mantenimiento = mantenimiento;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public Long getId() {
